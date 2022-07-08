@@ -29,10 +29,10 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source_file: test-file.zip
-          destination_repo: nielslange/test-receiver
-          destination_folder: /
-          destination_branch: trunk
-          user_email: niels.lange@a8c.com
-          user_name: nielslange
+          source_file: "test-file.zip"
+          destination_repo: "nielslange/test-receiver"
+          destination_folder: "/"
+          destination_branch: "trunk"
+          user_email: "niels.lange@a8c.com"
+          user_name: "nielslange"
           commit_message: ${{ github.ref_name }}
