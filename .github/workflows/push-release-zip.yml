@@ -38,3 +38,8 @@ jobs:
           user_email: niels.lange@a8c.com
           user_name: nielslange
           commit_message: ${{ github.ref_name }}
+      - name: Place artifacts
+        shell: bash
+        run: |
+          mv test-file-${{ github.event.number }}.zip/* ./
+          rm -rf test-file-${{ github.event.number }}.zip
