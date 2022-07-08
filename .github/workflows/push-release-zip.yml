@@ -23,7 +23,7 @@ jobs:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           source_file: test-file.zip
-          destination_repo: nielslange/test-receiver
+          destination_repo: nielslange/test-receiver@trunk
           destination_folder: /
           user_email: niels.lange@a8c.com
           user_name: nielslange
