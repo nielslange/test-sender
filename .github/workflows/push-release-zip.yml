@@ -13,7 +13,7 @@ jobs:
       - name: Upload the ZIP file artifact
         uses: actions/upload-artifact@v2
         with:
-          name: test-file.zip
+          path: test-file.zip
   send-it:
     needs: zip-it
     runs-on: ubuntu-latest
