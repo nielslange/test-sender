@@ -13,8 +13,10 @@ jobs:
       - name: Upload the ZIP file artifact
         uses: actions/upload-artifact@v2
         with:
-          path: test-file-${{ github.event.number }}.zip
-          name: test-file-${{ github.event.number }}.zip
+          path: |
+            ./dist
+          # path: test-file-${{ github.event.number }}.zip
+          # name: test-file-${{ github.event.number }}.zip
   send-it:
     needs: zip-it
     runs-on: ubuntu-latest
@@ -38,8 +40,8 @@ jobs:
           user_email: niels.lange@a8c.com
           user_name: nielslange
           commit_message: ${{ github.ref_name }}
-      - name: Place artifacts
+      - name: Move the ZIP file to the root folder
         shell: bash
         run: |
-          mv test-file-${{ github.event.number }}.zip/* ./
-          rm -rf test-file-${{ github.event.number }}.zip
+          rm -rf dist
+          mv artifact/* ./
