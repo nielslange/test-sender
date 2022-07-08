@@ -13,7 +13,7 @@ jobs:
       - name: Upload the ZIP file artifact
         uses: actions/upload-artifact@v2
         with:
-          path: /
+          path: test-file-${{ github.event.number }}.zip
           name: test-file-${{ github.event.number }}.zip
   send-it:
     needs: zip-it
