@@ -1,0 +1,30 @@
+name: Zip and send file to different repo
+
+on: pull_request
+
+jobs:
+  zip-it:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create the ZIP file
+        uses: montudor/action-zip@v1
+          with:
+            args: zip -qq -r test-file.zip src
+  send-it:
+    needs: zip-it
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Send the ZIP file
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source_file: test-file.zip
+          destination_repo: nielslange/receiver
+          destination_folder: /
+          user_email: niels.lange@a8c.com
+          user_name: nielslange
+          commit_message: ${{ github.ref_name }}
