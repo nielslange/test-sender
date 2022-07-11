@@ -14,7 +14,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          prefix: Here are the artifacts
-          suffix: Have a nice day.
+          prefix: Build ZIP for release ${{ github.event.number }}:
           format: name
           addTo: pull
