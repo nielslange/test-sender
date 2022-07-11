@@ -15,5 +15,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           prefix: Build ZIP for release ${{ github.event.number }}
+          suffix: ''
           format: name
           addTo: pull
