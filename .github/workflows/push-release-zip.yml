@@ -9,7 +9,7 @@ jobs:
       - name: Create the ZIP file
         uses: montudor/action-zip@v1
         with:
-          args: zip -qq -r test-file-${{ github.event.number }}.zip . -i src
+          args: zip -qq -r src-${{ github.event.number }}.zip src
       - name: Upload the ZIP file artifact
         uses: actions/upload-artifact@v2
         with:
